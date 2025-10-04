@@ -1,31 +1,31 @@
-# Guia do KaggleHub - Face Mask Detector
+﻿# Guia do KaggleHub - Face Mask Detector
 
-## 📋 Visão Geral
+##  Viso Geral
 
-O **KaggleHub** é uma biblioteca Python que facilita o download e carregamento de datasets do Kaggle diretamente no seu código. Este projeto utiliza o dataset `andrewmvd/face-mask-detection` para treinar o modelo de detecção de máscaras.
+O **KaggleHub**  uma biblioteca Python que facilita o download e carregamento de datasets do Kaggle diretamente no seu cdigo. Este projeto utiliza o dataset `andrewmvd/face-mask-detection` para treinar o modelo de deteco de mscaras.
 
-## 🔧 Configuração Inicial
+##  Configurao Inicial
 
 ### 1. Credenciais do Kaggle
 
-Para usar o KaggleHub, você precisa configurar suas credenciais do Kaggle:
+Para usar o KaggleHub, voc precisa configurar suas credenciais do Kaggle:
 
 1. **Criar conta**: [kaggle.com](https://www.kaggle.com)
-2. **Gerar API Token**: Account → Create New API Token
+2. **Gerar API Token**: Account  Create New API Token
 3. **Baixar kaggle.json**: Salve o arquivo de credenciais
 4. **Posicionar arquivo**:
    - **Windows**: `C:\Users\<seu-user>\.kaggle\kaggle.json`
    - **Linux/Mac**: `~/.kaggle/kaggle.json`
 
-### 2. Instalação
+### 2. Instalao
 
 ```bash
 pip install kagglehub
 ```
 
-## 📥 Métodos de Download
+##  Mtodos de Download
 
-### Método 1: Download Completo do Dataset
+### Mtodo 1: Download Completo do Dataset
 
 ```python
 import kagglehub
@@ -41,27 +41,27 @@ for root, dirs, files in os.walk(path):
         print(os.path.join(root, file))
 ```
 
-### Método 2: Carregamento com Pandas Adapter
+### Mtodo 2: Carregamento com Pandas Adapter
 
 ```python
 import kagglehub
 from kagglehub import KaggleDatasetAdapter
 
-# Carrega arquivo específico como DataFrame
+# Carrega arquivo especfico como DataFrame
 df = kagglehub.load_dataset(
     KaggleDatasetAdapter.PANDAS,
     "andrewmvd/face-mask-detection",
-    "annotations.csv"  # arquivo específico
+    "annotations.csv"  # arquivo especfico
 )
 
 print("Primeiras 5 linhas:")
 print(df.head())
 
-print("Informações do dataset:")
+print("Informaes do dataset:")
 print(df.info())
 ```
 
-### Método 3: Script Automatizado (Recomendado)
+### Mtodo 3: Script Automatizado (Recomendado)
 
 ```bash
 # Use o script fornecido
@@ -72,29 +72,29 @@ python download_dataset.py
 # Linux/Mac: ./download_data.sh
 ```
 
-## 📁 Estrutura do Dataset
+##  Estrutura do Dataset
 
-O dataset `andrewmvd/face-mask-detection` contém:
+O dataset `andrewmvd/face-mask-detection` contm:
 
 ```
 face-mask-detection/
-├── 📁 images/              # Imagens originais
-│   ├── maksssksksss0.png
-│   ├── maksssksksss1.png
-│   └── ...
-├── 📄 annotations.csv      # Anotações (opcional)
-├── 📄 train.csv           # Labels de treino (opcional)
-└── 📄 test.csv            # Labels de teste (opcional)
+  images/              # Imagens originais
+    maksssksksss0.png
+    maksssksksss1.png
+    ...
+  annotations.csv      # Anotaes (opcional)
+  train.csv           # Labels de treino (opcional)
+  test.csv            # Labels de teste (opcional)
 ```
 
-## 🔄 Integração com o Projeto
+##  Integrao com o Projeto
 
-### 1. Organização Automática
+### 1. Organizao Automtica
 
 O script `download_dataset.py` organiza automaticamente os dados:
 
 ```python
-# Dataset original → pasta local 'data'
+# Dataset original  pasta local 'data'
 path = kagglehub.dataset_download("andrewmvd/face-mask-detection")
 shutil.copytree(path, "data")
 ```
@@ -104,11 +104,11 @@ shutil.copytree(path, "data")
 O `train_model.py` verifica automaticamente:
 
 1. **Dataset local** (`data/` directory)
-2. **Download via KaggleHub** (se necessário)
-3. **Dataset sintético** (fallback)
+2. **Download via KaggleHub** (se necessrio)
+3. **Dataset sinttico** (fallback)
 
 ```python
-# Verificação automática
+# Verificao automtica
 has_local, local_path = self.check_local_dataset()
 if has_local:
     # Usa dataset local
@@ -118,21 +118,21 @@ else:
     dataset_path = kagglehub.dataset_download("andrewmvd/face-mask-detection")
 ```
 
-## 🎯 Casos de Uso
+##  Casos de Uso
 
-### Caso 1: Primeira Execução
+### Caso 1: Primeira Execuo
 
 ```bash
-# Configuração completa com download
+# Configurao completa com download
 python setup.py
-# → Responder "s" para download do dataset
-# → Responder "s" para treinamento
+#  Responder "s" para download do dataset
+#  Responder "s" para treinamento
 ```
 
 ### Caso 2: Download Posterior
 
 ```bash
-# Se não baixou durante setup
+# Se no baixou durante setup
 python download_dataset.py
 
 # Depois treinar
@@ -142,15 +142,15 @@ python train_model.py
 ### Caso 3: Desenvolvimento/Debug
 
 ```python
-# Carregamento rápido para análise
+# Carregamento rpido para anlise
 import kagglehub
 
-# Só lista arquivos sem download completo
+# S lista arquivos sem download completo
 metadata = kagglehub.dataset_metadata("andrewmvd/face-mask-detection")
 print(metadata)
 ```
 
-## 🚨 Solução de Problemas
+##  Soluo de Problemas
 
 ### Erro: "Dataset not found"
 ```bash
@@ -167,7 +167,7 @@ type %USERPROFILE%\.kaggle\kaggle.json  # Windows
 
 ### Erro: "Permission denied"
 ```bash
-# Linux/Mac: ajusta permissões
+# Linux/Mac: ajusta permisses
 chmod 600 ~/.kaggle/kaggle.json
 ```
 
@@ -181,28 +181,28 @@ kagglehub.dataset_download(
 )
 ```
 
-## 📊 Informações do Dataset
+##  Informaes do Dataset
 
 - **Nome**: Face Mask Detection
 - **Autor**: Andrew MV
 - **Tamanho**: ~100MB
 - **Imagens**: ~853 imagens
-- **Classes**: com_máscara, sem_máscara
+- **Classes**: com_mscara, sem_mscara
 - **Formato**: PNG, JPG
-- **Resolução**: Variada
+- **Resoluo**: Variada
 
-## 🔗 Links Úteis
+##  Links teis
 
 - **Dataset**: https://www.kaggle.com/datasets/andrewmvd/face-mask-detection
 - **KaggleHub Docs**: https://github.com/Kaggle/kagglehub
 - **Kaggle API**: https://www.kaggle.com/docs/api
 
-## 💡 Dicas de Performance
+##  Dicas de Performance
 
-1. **Cache Local**: O KaggleHub faz cache automático
-2. **Download Único**: Evite downloads repetidos
-3. **Organização**: Use a pasta `data/` para consistência
-4. **Verificação**: Sempre verifique se dados existem localmente primeiro
+1. **Cache Local**: O KaggleHub faz cache automtico
+2. **Download nico**: Evite downloads repetidos
+3. **Organizao**: Use a pasta `data/` para consistncia
+4. **Verificao**: Sempre verifique se dados existem localmente primeiro
 
 ---
 
