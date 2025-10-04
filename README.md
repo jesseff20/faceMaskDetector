@@ -1,80 +1,80 @@
 ﻿#  Face Mask Detector
 
-Um sistema inteligente de deteco de mscaras faciais usando **Deep Learning** e **Computer Vision**. O projeto utiliza redes neurais convolucionais (CNN) para identificar se uma pessoa est usando mscara facial, no usando ou usando incorretamente em tempo real atravs de webcam ou anlise de imagens.
+Um sistema inteligente de detecção de máscaras faciais usando **Deep Learning** e **Computer Vision**. O projeto utiliza redes neurais convolucionais (CNN) para identificar se uma pessoa está usando máscara facial, não usando ou usando incorretamente em tempo real através de webcam ou análise de imagens.
 
 ##  Objetivo Principal
 
-Este projeto  focado no **treinamento de modelos de Deep Learning** para deteco de mscaras faciais. O volume de imagens e a estratgia de balanceamento so fatores determinantes para alcanar **alta acurcia** e **baixo loss** no modelo final.
+Este projeto é focado no **treinamento de modelos de Deep Learning** para detecção de máscaras faciais. O volume de imagens e a estratégia de balanceamento são fatores determinantes para alcançar **alta acurácia** e **baixo loss** no modelo final.
 
-###  Relao Volume vs Performance
-- **Volume de Imagens**: Diretamente proporcional  acurcia do modelo
+### Relação Volume vs Performance
+- **Volume de Imagens**: Diretamente proporcional à acurácia do modelo
 - **Balanceamento de Classes**: Essencial para evitar overfitting
-- **Meta de Acurcia**: Sistema permite definir acurcia alvo (70-99%)
-- **Loss Otimizado**: Tcnicas avanadas para minimizar o erro
+- **Meta de Acurácia**: Sistema permite definir acurácia alvo (70-99%)
+- **Loss Otimizado**: Técnicas avançadas para minimizar o erro
 
-##  Caractersticas
+## Características
 
--  **Deteco em Tempo Real**: Anlise via webcam com processamento ao vivo
--  **Upload de Imagens**: Anlise de fotos carregadas pelo usurio
--  **Captura de Fotos**: Tire fotos diretamente pela webcam
--  **Treinamento Inteligente**: Sistema adaptativo com meta de acurcia
--  **3 Classes de Deteco**: Com mscara, sem mscara, mscara incorreta
--  **Interface Web**: Interface amigvel desenvolvida em Streamlit
--  **Processamento Otimizado**: Mltiplos detectores de rostos para maior preciso
--  **Mtricas Avanadas**: Estatsticas detalhadas e anlise de performance
+- **Detecção em Tempo Real**: Análise via webcam com processamento ao vivo
+- **Upload de Imagens**: Análise de fotos carregadas pelo usuário
+- **Captura de Fotos**: Tire fotos diretamente pela webcam
+- **Treinamento Inteligente**: Sistema adaptativo com meta de acurácia
+- **3 Classes de Detecção**: Com máscara, sem máscara, máscara incorreta
+- **Interface Web**: Interface amigável desenvolvida em Streamlit
+- **Processamento Otimizado**: Múltiplos detectores de rostos para maior precisão
+- **Métricas Avançadas**: Estatísticas detalhadas e análise de performance
 
 ##  Tecnologias Utilizadas
 
-| Tecnologia | Verso | Uso |
+| Tecnologia | Versão | Uso |
 |------------|--------|-----|
 | **Python** | 3.7+ | Linguagem principal |
 | **Streamlit** | 1.28.0 | Interface web |
 | **TensorFlow** | 2.13.0 | Framework de deep learning |
-| **Keras** | 2.13.1 | API de alto nvel para redes neurais |
-| **OpenCV** | 4.8.1 | Processamento de imagens e viso computacional |
-| **NumPy** | 1.24.3 | Operaes numricas |
-| **Matplotlib** | 3.7.2 | Visualizao de dados |
-| **Scikit-learn** | 1.3.0 | Mtricas de avaliao |
+| **Keras** | 2.13.1 | API de alto nível para redes neurais |
+| **OpenCV** | 4.8.1 | Processamento de imagens e visão computacional |
+| **NumPy** | 1.24.3 | Operações numéricas |
+| **Matplotlib** | 3.7.2 | Visualização de dados |
+| **Scikit-learn** | 1.3.0 | Métricas de avaliação |
 
 ##  Estrutura do Projeto
 
 ```
 faceMaskDetector/
   model/                    # Modelos treinados e arquivos relacionados
-    mask_detector.h5         # Modelo principal (gerado aps treinamento)
-    model_info.json          # Informaes do modelo
-    training_history.png     # Grficos do treinamento
-    deploy.prototxt          # Configurao do detector de rostos
+    mask_detector.h5         # Modelo principal (gerado após treinamento)
+    model_info.json          # Informações do modelo
+    training_history.png     # Gráficos do treinamento
+    deploy.prototxt          # Configuração do detector de rostos
     res10_300x300_ssd_iter_140000.caffemodel  # Pesos do detector
   data/                     # Dados de treinamento
-    with_mask/               # Imagens com mscaras
-    without_mask/            # Imagens sem mscaras
+    with_mask/               # Imagens com máscaras
+    without_mask/            # Imagens sem máscaras
   app.py                    # Interface principal Streamlit
-  utils.py                  # Funes utilitrias
+  utils.py                  # Funções utilitárias
   train_model.py            # Script de treinamento do modelo
-  setup.py                  # Configurao automtica do ambiente
-  requirements.txt          # Dependncias do projeto
+  setup.py                  # Configuração automática do ambiente
+  requirements.txt          # Dependências do projeto
   README.md                 # Este arquivo
   .gitignore               # Arquivos ignorados pelo Git
 ```
 
-##  Instalao e Configurao
+## Instalação e Configuração
 
-### Mtodo 1: Configurao Automtica (Recomendado)
+### Método 1: Configuração Automática (Recomendado)
 
-1. **Clone o repositrio:**
+1. **Clone o repositório:**
 ```bash
 git clone <https://github.com/jesseff20/faceMaskDetector>
 cd faceMaskDetector
 ```
 
-2. **Execute o script de configurao:**
+2. **Execute o script de configuração:**
 ```bash
 python setup.py
 ```
 
 Este script ir:
--  Verificar a verso do Python
+- Verificar a versão do Python
 -  Criar ambiente virtual
 -  Instalar todas as dependncias (incluindo kagglehub)
 -  Oferecer download do dataset real do Kaggle
@@ -85,7 +85,7 @@ Este script ir:
 
 Para treinar o modelo com dados reais, voc pode baixar o dataset do Kaggle:
 
-#### Opo A: Durante a configurao inicial
+#### Opção A: Durante a configuração inicial
 ```bash
 python setup.py
 # Responda "s" quando perguntado sobre download do dataset
@@ -119,7 +119,7 @@ df = kagglehub.load_dataset(
 )
 ```
 
-** Configurao do Kaggle (necessria):**
+**Configuração do Kaggle (necessária):**
 1. Crie conta no [Kaggle](https://www.kaggle.com)
 2. V em Account  Create New API Token
 3. Baixe o arquivo `kaggle.json`
@@ -139,7 +139,7 @@ df = kagglehub.load_dataset(
 source venv/bin/activate
 ```
 
-### Mtodo 2: Configurao Manual
+### Método 2: Configuração Manual
 
 1. **Criar ambiente virtual:**
 ```bash
@@ -193,7 +193,7 @@ python train_model.py
 Escolha (1/2, Enter para 1): 2
 ```
 
-**2. Meta de Acurcia:**
+**2. Meta de Acurácia:**
 ```
 [PERGUNTA] Qual acuracia deseja atingir? (0-100%, Enter para 80%): 90
 [INFO] Treinamento com meta de acuracia: 90.0%
@@ -201,7 +201,7 @@ Escolha (1/2, Enter para 1): 2
 
 ### ** Impacto do Volume de Imagens**
 
-| Volume | Balanceamento | Acurcia Esperada | Loss Esperado | Recomendao |
+| Volume | Balanceamento | Acurácia Esperada | Loss Esperado | Recomendação |
 |--------|---------------|-------------------|---------------|--------------|
 | 108 imagens |  Perfeito (100%) | 70-85% | Alto (1.0-2.0) | Ideal para testes |
 | 400 imagens |  Mdio (40%) | 75-90% | Mdio (0.5-1.0) | Bom compromisso |
@@ -214,7 +214,7 @@ O script de treinamento inclui:
 -  **Class Weights**: Balanceamento automtico de classes desbalanceadas  
 -  **Data Augmentation**: Rotao, zoom, brilho para aumentar dataset
 -  **Learning Rate Scheduler**: Ajuste dinmico da taxa de aprendizado
--  **Early Stopping**: Para quando atinge a meta de acurcia
+- **Early Stopping**: Para quando atinge a meta de acurácia
 -  **Checkpoint**: Salva melhor modelo automaticamente
 
 ### 2. Executar a Aplicao
@@ -234,13 +234,13 @@ A aplicao abrir automaticamente no navegador em `http://localhost:8501`
 
 ** Webcam (Foto):**
 - Clique em "Take a picture"
-- Autorize o acesso  cmera
+- Autorize o acesso à câmera
 - Tire uma foto e veja a anlise
 
 ** Webcam (Tempo Real):**
-- Clique em "Iniciar Cmera"
+- Clique em "Iniciar Câmera"
 - Veja a anlise em tempo real
-- Clique em "Parar Cmera" para finalizar
+- Clique em "Parar Câmera" para finalizar
 
 ##  Arquitetura do Modelo
 
@@ -273,20 +273,20 @@ Dense (512 neurons) + BatchNorm + ReLU + Dropout (0.5)
         
 Dense (3 neurons) + Softmax
         
-Output: [Com Mscara, Sem Mscara, Mscara Incorreta]
+Output: [Com Máscara, Sem Máscara, Máscara Incorreta]
 ```
 
 
-### ** Especificaes Tcnicas**
+### Especificações Técnicas
 
 | Especificao | Valor | Descrio |
 |---------------|-------|-----------|
 | **Input Size** | 224x224x3 | Imagens RGB redimensionadas |
-| **Classes** | 3 classes | Com mscara, sem mscara, mscara incorreta |
+| **Classes** | 3 classes | Com máscara, sem máscara, máscara incorreta |
 | **Parmetros** | ~9.6M | Total de parmetros treinveis |
 | **Arquitetura** | 4 blocos CNN | Extrao hierrquica de features |
 | **Otimizador** | Adam | Learning rate adaptativo |
-| **Loss Function** | Categorical Crossentropy | Para classificao multiclasse |
+| **Loss Function** | Categorical Crossentropy | Para classificação multiclasse |
 
 ### ** Otimizaes de Performance**
 
@@ -305,7 +305,7 @@ Output: [Com Mscara, Sem Mscara, Mscara Incorreta]
 ** Learning Rate Strategy:**
 - Scheduler adaptativo
 - Reduo automtica no plateau
-- Early stopping com meta de acurcia
+- Early stopping com meta de acurácia
 
 ##  Funcionalidades da Interface
 

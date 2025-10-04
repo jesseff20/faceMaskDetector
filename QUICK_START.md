@@ -1,8 +1,8 @@
-﻿#  Face Mask Detector - Guia Rpido
+﻿# Face Mask Detector - Guia Rápido
 
-##  Incio Rpido
+## Início Rápido
 
-### 1 Primeira Execuo
+### 1ª Primeira Execução
 ```bash
 # Execute apenas uma vez para configurar tudo
 python setup.py
@@ -12,7 +12,7 @@ python setup.py
 #  Responda "s" para treinar modelo com dados reais
 ```
 
-** Configurao do Kaggle (necessria para dataset real):**
+**Configuração do Kaggle (necessária para dataset real):**
 1. Crie conta em [kaggle.com](https://www.kaggle.com)
 2. Baixe `kaggle.json` (Account  API  Create New Token)
 3. Coloque em:
@@ -44,43 +44,43 @@ streamlit run app.py
 3. Veja o resultado automaticamente
 
 ###  Webcam (Foto)
-1. Escolha a cmera na barra lateral
+1. Escolha a câmera na barra lateral
 2. Clique em "Take a picture"
-3. Autorize acesso  cmera
+3. Autorize acesso à câmera
 4. Anlise automtica
 
 ###  Tempo Real
-1. Selecione a cmera
-2. "Iniciar Cmera"  anlise contnua
-3. "Parar Cmera" quando terminar
+1. Selecione a câmera
+2. "Iniciar Câmera" → análise contínua
+3. "Parar Câmera" quando terminar
 
 ---
 
 ##  Configuraes
 
-### Ajustar Preciso
-- **Limite de confiana**: 0.3-1.0 (padro: 0.8)
-- **Menor valor**: Mais deteces, alguns falsos positivos
-- **Maior valor**: Menos deteces, maior preciso
-- **Novo padro 80%**: Melhor preciso nas deteces
+### Ajustar Precisão
+- **Limite de confiança**: 0.3-1.0 (padrão: 0.8)
+- **Menor valor**: Mais detecções, alguns falsos positivos
+- **Maior valor**: Menos detecções, maior precisão
+- **Novo padrão 80%**: Melhor precisão nas detecções
 
-### Mltiplas Cmeras
+### Múltiplas Câmeras
 - Sistema detecta automaticamente
 - Escolha na barra lateral
-- Boto "Testar Cmera" para verificar
+- Botão "Testar Câmera" para verificar
 
 ---
 
-##  Interpretao dos Resultados
+## Interpretação dos Resultados
 
 ### Cores das Caixas
--  **Verde**: Pessoa COM mscara
--  **Vermelho**: Pessoa SEM mscara
+- **Verde**: Pessoa COM máscara
+- **Vermelho**: Pessoa SEM máscara
 
-###  Feedback Positivo
-- **Todos com mscara**: Mensagem especial de parabenizao
-- **Animao verde**: Efeito visual positivo
-- **Reconhecimento**: Agradecimento por contribuir com a segurana
+### Feedback Positivo
+- **Todos com máscara**: Mensagem especial de parabenização
+- **Animação verde**: Efeito visual positivo
+- **Reconhecimento**: Agradecimento por contribuir com a segurança
 
 ### Mtricas
 - ** Rostos Detectados**: Total de pessoas

@@ -1,14 +1,14 @@
 ﻿# Guia do KaggleHub - Face Mask Detector
 
-##  Viso Geral
+## Visão Geral
 
-O **KaggleHub**  uma biblioteca Python que facilita o download e carregamento de datasets do Kaggle diretamente no seu cdigo. Este projeto utiliza o dataset `andrewmvd/face-mask-detection` para treinar o modelo de deteco de mscaras.
+O **KaggleHub** é uma biblioteca Python que facilita o download e carregamento de datasets do Kaggle diretamente no seu código. Este projeto utiliza o dataset `andrewmvd/face-mask-detection` para treinar o modelo de detecção de máscaras.
 
-##  Configurao Inicial
+## Configuração Inicial
 
 ### 1. Credenciais do Kaggle
 
-Para usar o KaggleHub, voc precisa configurar suas credenciais do Kaggle:
+Para usar o KaggleHub, você precisa configurar suas credenciais do Kaggle:
 
 1. **Criar conta**: [kaggle.com](https://www.kaggle.com)
 2. **Gerar API Token**: Account  Create New API Token
@@ -17,15 +17,15 @@ Para usar o KaggleHub, voc precisa configurar suas credenciais do Kaggle:
    - **Windows**: `C:\Users\<seu-user>\.kaggle\kaggle.json`
    - **Linux/Mac**: `~/.kaggle/kaggle.json`
 
-### 2. Instalao
+### 2. Instalação
 
 ```bash
 pip install kagglehub
 ```
 
-##  Mtodos de Download
+## Métodos de Download
 
-### Mtodo 1: Download Completo do Dataset
+### Método 1: Download Completo do Dataset
 
 ```python
 import kagglehub
@@ -41,27 +41,27 @@ for root, dirs, files in os.walk(path):
         print(os.path.join(root, file))
 ```
 
-### Mtodo 2: Carregamento com Pandas Adapter
+### Método 2: Carregamento com Pandas Adapter
 
 ```python
 import kagglehub
 from kagglehub import KaggleDatasetAdapter
 
-# Carrega arquivo especfico como DataFrame
+# Carrega arquivo específico como DataFrame
 df = kagglehub.load_dataset(
     KaggleDatasetAdapter.PANDAS,
     "andrewmvd/face-mask-detection",
-    "annotations.csv"  # arquivo especfico
+    "annotations.csv"  # arquivo específica
 )
 
 print("Primeiras 5 linhas:")
 print(df.head())
 
-print("Informaes do dataset:")
+print("Informações do dataset:")
 print(df.info())
 ```
 
-### Mtodo 3: Script Automatizado (Recomendado)
+### Método 3: Script Automatizado (Recomendado)
 
 ```bash
 # Use o script fornecido
@@ -74,7 +74,7 @@ python download_dataset.py
 
 ##  Estrutura do Dataset
 
-O dataset `andrewmvd/face-mask-detection` contm:
+O dataset `andrewmvd/face-mask-detection` contém:
 
 ```
 face-mask-detection/
@@ -82,19 +82,19 @@ face-mask-detection/
     maksssksksss0.png
     maksssksksss1.png
     ...
-  annotations.csv      # Anotaes (opcional)
+  annotations.csv      # Anotações (opcional)
   train.csv           # Labels de treino (opcional)
   test.csv            # Labels de teste (opcional)
 ```
 
-##  Integrao com o Projeto
+## Integração com o Projeto
 
-### 1. Organizao Automtica
+### 1. Organização Automática
 
 O script `download_dataset.py` organiza automaticamente os dados:
 
 ```python
-# Dataset original  pasta local 'data'
+# Dataset original → pasta local 'data'
 path = kagglehub.dataset_download("andrewmvd/face-mask-detection")
 shutil.copytree(path, "data")
 ```
@@ -104,7 +104,7 @@ shutil.copytree(path, "data")
 O `train_model.py` verifica automaticamente:
 
 1. **Dataset local** (`data/` directory)
-2. **Download via KaggleHub** (se necessrio)
+2. **Download via KaggleHub** (se necessário)
 3. **Dataset sinttico** (fallback)
 
 ```python
@@ -120,10 +120,10 @@ else:
 
 ##  Casos de Uso
 
-### Caso 1: Primeira Execuo
+### Caso 1: Primeira Execução
 
 ```bash
-# Configurao completa com download
+# Configuração completa com download
 python setup.py
 #  Responder "s" para download do dataset
 #  Responder "s" para treinamento
@@ -142,7 +142,7 @@ python train_model.py
 ### Caso 3: Desenvolvimento/Debug
 
 ```python
-# Carregamento rpido para anlise
+# Carregamento rápido para análise
 import kagglehub
 
 # S lista arquivos sem download completo
@@ -150,7 +150,7 @@ metadata = kagglehub.dataset_metadata("andrewmvd/face-mask-detection")
 print(metadata)
 ```
 
-##  Soluo de Problemas
+## Solução de Problemas
 
 ### Erro: "Dataset not found"
 ```bash
@@ -167,7 +167,7 @@ type %USERPROFILE%\.kaggle\kaggle.json  # Windows
 
 ### Erro: "Permission denied"
 ```bash
-# Linux/Mac: ajusta permisses
+# Linux/Mac: ajusta permissões
 chmod 600 ~/.kaggle/kaggle.json
 ```
 
@@ -182,17 +182,17 @@ kagglehub.dataset_download(
 ```
 
 
-##  Informaes do Dataset
+## Informações do Dataset
 
 - **Nome**: Face Mask Detection
 - **Autor**: Andrew MV
 - **Tamanho**: ~100MB
 - **Imagens**: ~853 imagens
-- **Classes**: com_mscara, sem_mscara
+- **Classes**: com_máscara, sem_máscara
 - **Formato**: PNG, JPG
-- **Resoluo**: Variada
+- **Resolução**: Variada
 
-##  Links teis
+## Links Úteis
 
 - **Dataset**: https://www.kaggle.com/datasets/andrewmvd/face-mask-detection
 - **KaggleHub Docs**: https://github.com/Kaggle/kagglehub
@@ -202,8 +202,8 @@ kagglehub.dataset_download(
 
 1. **Cache Local**: O KaggleHub faz cache automtico
 2. **Download nico**: Evite downloads repetidos
-3. **Organizao**: Use a pasta `data/` para consistncia
-4. **Verificao**: Sempre verifique se dados existem localmente primeiro
+3. **Organização**: Use a pasta `data/` para consistência
+4. **Verificação**: Sempre verifique se dados existem localmente primeiro
 
 ---
 
