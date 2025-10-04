@@ -29,6 +29,7 @@ run.bat
 streamlit run app.py
 ```
 
+
 ### 3 Acessar no Navegador
 - **Local**: http://localhost:8501
 - **Rede**: http://192.168.0.36:8501

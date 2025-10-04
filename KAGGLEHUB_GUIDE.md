@@ -181,6 +181,7 @@ kagglehub.dataset_download(
 )
 ```
 
+
 ##  Informaes do Dataset
 
 - **Nome**: Face Mask Detection

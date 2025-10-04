@@ -276,6 +276,7 @@ Dense (3 neurons) + Softmax
 Output: [Com Mscara, Sem Mscara, Mscara Incorreta]
 ```
 
+
 ### ** Especificaes Tcnicas**
 
 | Especificao | Valor | Descrio |
