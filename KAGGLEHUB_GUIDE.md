@@ -1,6 +1,6 @@
 ﻿# Guia do KaggleHub - Face Mask Detector
 
-## Visão Geral
+## Visão     "annotations.csv"  # arquivo específicoeral
 
 O **KaggleHub** é uma biblioteca Python que facilita o download e carregamento de datasets do Kaggle diretamente no seu código. Este projeto utiliza o dataset `andrewmvd/face-mask-detection` para treinar o modelo de detecção de máscaras.
 
@@ -105,10 +105,10 @@ O `train_model.py` verifica automaticamente:
 
 1. **Dataset local** (`data/` directory)
 2. **Download via KaggleHub** (se necessário)
-3. **Dataset sinttico** (fallback)
+3. **Dataset sintético** (fallback)
 
 ```python
-# Verificao automtica
+# Verificação automática
 has_local, local_path = self.check_local_dataset()
 if has_local:
     # Usa dataset local
@@ -200,8 +200,8 @@ kagglehub.dataset_download(
 
 ##  Dicas de Performance
 
-1. **Cache Local**: O KaggleHub faz cache automtico
-2. **Download nico**: Evite downloads repetidos
+1. **Cache Local**: O KaggleHub faz cache automático
+2. **Download Único**: Evite downloads repetidos
 3. **Organização**: Use a pasta `data/` para consistência
 4. **Verificação**: Sempre verifique se dados existem localmente primeiro
 

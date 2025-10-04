@@ -7,7 +7,7 @@
 # Execute apenas uma vez para configurar tudo
 python setup.py
 
-#  Durante a configurao:
+# Durante a configuração:
 #  Responda "s" para baixar dataset real do Kaggle (recomendado)
 #  Responda "s" para treinar modelo com dados reais
 ```
@@ -19,7 +19,7 @@ python setup.py
    - **Windows**: `C:\Users\<user>\.kaggle\kaggle.json`
    - **Linux/Mac**: `~/.kaggle/kaggle.json`
 
-### 2 Executar a Aplicao
+### 2. Executar a Aplicação
 ```bash
 # Windows
 run.bat
@@ -47,7 +47,7 @@ streamlit run app.py
 1. Escolha a câmera na barra lateral
 2. Clique em "Take a picture"
 3. Autorize acesso à câmera
-4. Anlise automtica
+4. Análise automática
 
 ###  Tempo Real
 1. Selecione a câmera

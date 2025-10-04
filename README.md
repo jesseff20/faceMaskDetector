@@ -1,6 +1,6 @@
 ﻿#  Face Mask Detector
 
-Um sistema inteligente de detecção de máscaras faciais usando **Deep Learning** e **Computer Vision**. O projeto utiliza redes neurais convolucionais (CNN) para identificar se uma pessoa está usando máscara facial, não usando ou usando incorretamente em tempo real através de webcam ou análise de imagens.
+Um sistema inteligente de detecção de máscaras faciais usando **Deep Learning** e **Computer Vision**. O projeto utiliza redes neurais convol**O treinamento é o coração do projeto!** Execute para criar seu modelo personalizado:cionais (CNN) para identificar se uma pessoa está usando máscara facial, não usando ou usando incorretamente em tempo real através de webcam ou análise de imagens.
 
 ##  Objetivo Principal
 
@@ -76,10 +76,10 @@ python setup.py
 Este script ir:
 - Verificar a versão do Python
 -  Criar ambiente virtual
--  Instalar todas as dependncias (incluindo kagglehub)
+- Instalar todas as dependências (incluindo kagglehub)
 -  Oferecer download do dataset real do Kaggle
--  Criar modelo de demonstrao funcional
--  Criar arquivos bsicos do projeto
+- Criar modelo de demonstração funcional
+- Criar arquivos básicos do projeto
 
 ###  Download do Dataset de Imagens
 
@@ -91,7 +91,7 @@ python setup.py
 # Responda "s" quando perguntado sobre download do dataset
 ```
 
-#### Opo B: Download posterior
+#### Opção B: Download posterior
 ```bash
 # Windows
 download_data.bat
@@ -111,11 +111,11 @@ from kagglehub import KaggleDatasetAdapter
 # Download do dataset completo
 path = kagglehub.dataset_download("andrewmvd/face-mask-detection") 
 
-# Ou carregamento especfico de arquivo
+# Ou carregamento específico de arquivo
 df = kagglehub.load_dataset(
     KaggleDatasetAdapter.PANDAS,
     "andrewmvd/face-mask-detection",
-    "annotations.csv"  # arquivo especfico
+    "annotations.csv"  # arquivo específico
 )
 ```
 
@@ -155,7 +155,7 @@ python -m venv venv
 source venv/bin/activate
 ```
 
-3. **Instalar dependncias:**
+3. **Instalar dependências:**
 ```bash
 pip install -r requirements.txt
 ```
@@ -164,7 +164,7 @@ pip install -r requirements.txt
 
 ### 1. Treinar o Modelo (Essencial)
 
-** O treinamento  o corao do projeto!** Execute para criar seu modelo personalizado:
+**O treinamento é o coração do projeto!** Execute para criar seu modelo personalizado:
 
 ```bash
 python train_model.py
@@ -172,7 +172,7 @@ python train_model.py
 
 ##  Sistema Inteligente de Treinamento
 
-### ** Estatsticas do Dataset (Exemplo)**
+### Estatísticas do Dataset (Exemplo)**
 ```
 [INFO] ESTATISTICAS DO DATASET:
    - Total de imagens: 853
@@ -189,7 +189,7 @@ python train_model.py
 
 [PERGUNTA] Estrategia de carregamento:
 1. Balanceado (max 108 imagens)
-2. Todas as disponiveis (853 imagens desbalanceadas)  
+2. Todas as disponíveis (853 imagens desbalanceadas)  
 Escolha (1/2, Enter para 1): 2
 ```
 
@@ -207,44 +207,44 @@ Escolha (1/2, Enter para 1): 2
 | 400 imagens |  Mdio (40%) | 75-90% | Mdio (0.5-1.0) | Bom compromisso |
 | 853 imagens |  Baixo (5%) | 80-95% | Baixo (0.1-0.5) | Mxima performance |
 
-### ** Tcnicas Avanadas Implementadas**
+### Técnicas Avançadas Implementadas
 
 O script de treinamento inclui:
--  **Download Automtico**: Dataset real do Kaggle (853 imagens)
--  **Class Weights**: Balanceamento automtico de classes desbalanceadas  
--  **Data Augmentation**: Rotao, zoom, brilho para aumentar dataset
--  **Learning Rate Scheduler**: Ajuste dinmico da taxa de aprendizado
+- **Download Automático**: Dataset real do Kaggle (853 imagens)
+- **Class Weights**: Balanceamento automático de classes desbalanceadas  
+- **Data Augmentation**: Rotação, zoom, brilho para aumentar dataset
+- **Learning Rate Scheduler**: Ajuste dinâmico da taxa de aprendizado
 - **Early Stopping**: Para quando atinge a meta de acurácia
--  **Checkpoint**: Salva melhor modelo automaticamente
+- **Checkpoint**: Salva melhor modelo automaticamente
 
-### 2. Executar a Aplicao
+### 2. Executar a Aplicação
 
 ```bash
 streamlit run app.py
 ```
 
-A aplicao abrir automaticamente no navegador em `http://localhost:8501`
+A aplicação abrirá automaticamente no navegador em `http://localhost:8501`
 
 ### 3. Usar a Interface
 
 ** Upload de Imagem:**
 - Clique em "Browse files" 
 - Selecione uma imagem (PNG, JPG, JPEG)
-- Veja o resultado da anlise
+- Veja o resultado da análise
 
 ** Webcam (Foto):**
 - Clique em "Take a picture"
 - Autorize o acesso à câmera
-- Tire uma foto e veja a anlise
+- Tire uma foto e veja a análise
 
 ** Webcam (Tempo Real):**
 - Clique em "Iniciar Câmera"
-- Veja a anlise em tempo real
+- Veja a análise em tempo real
 - Clique em "Parar Câmera" para finalizar
 
 ##  Arquitetura do Modelo
 
-O modelo utiliza uma **CNN (Convolutional Neural Network)** avanada com **3 classes de sada**:
+O modelo utiliza uma **CNN (Convolutional Neural Network)** avançada com **3 classes de saída**:
 
 ```
  Arquitetura da CNN Atualizada:
@@ -279,57 +279,57 @@ Output: [Com Máscara, Sem Máscara, Máscara Incorreta]
 
 ### Especificações Técnicas
 
-| Especificao | Valor | Descrio |
+| Especificação | Valor | Descrição |
 |---------------|-------|-----------|
 | **Input Size** | 224x224x3 | Imagens RGB redimensionadas |
 | **Classes** | 3 classes | Com máscara, sem máscara, máscara incorreta |
-| **Parmetros** | ~9.6M | Total de parmetros treinveis |
-| **Arquitetura** | 4 blocos CNN | Extrao hierrquica de features |
+| **Parâmetros** | ~9.6M | Total de parâmetros treináveis |
+| **Arquitetura** | 4 blocos CNN | Extração hierárquica de features |
 | **Otimizador** | Adam | Learning rate adaptativo |
 | **Loss Function** | Categorical Crossentropy | Para classificação multiclasse |
 
-### ** Otimizaes de Performance**
+### Otimizações de Performance
 
 ** Data Augmentation Intensivo:**
-- Rotao: 30
+- Rotação: 30°
 - Zoom: 20%
-- Translao: 30%
+- Translação: 30%
 - Brilho: 80-120%
 - Espelhamento horizontal
 
 ** Balanceamento de Classes:**
-- Class weights automticos
+- Class weights automáticos
 - Sampling inteligente
-- Estratgia balanceada vs desbalanceada
+- Estratégia balanceada vs desbalanceada
 
 ** Learning Rate Strategy:**
 - Scheduler adaptativo
-- Reduo automtica no plateau
+- Redução automática no plateau
 - Early stopping com meta de acurácia
 
 ##  Funcionalidades da Interface
 
 ### Painel Lateral
--  **Configuraes**: Ajustes de confiana e visualizao
--  **Informaes do Modelo**: Status e mtricas do modelo carregado
--  **Controles Avanados**: Limiar de confiana, opes de exibio
+- **Configurações**: Ajustes de confiança e visualização
+- **Informações do Modelo**: Status e métricas do modelo carregado
+- **Controles Avançados**: Limiar de confiança, opções de exibição
 
-### rea Principal
--  **Visualizao**: Imagens originais e processadas lado a lado
--  **Mtricas**: Contadores de rostos detectados
--  **Detalhes**: Informaes detalhadas de cada deteco
--  **Bounding Boxes**: Caixas coloridas ao redor dos rostos
-  -  **Verde**: Com mscara
-  -  **Vermelho**: Sem mscara
+### Área Principal
+- **Visualização**: Imagens originais e processadas lado a lado
+- **Métricas**: Contadores de rostos detectados
+- **Detalhes**: Informações detalhadas de cada detecção
+- **Bounding Boxes**: Caixas coloridas ao redor dos rostos
+  - **Verde**: Com máscara
+  - **Vermelho**: Sem máscara
 
-##  Configuraes Avanadas
+## Configurações Avançadas
 
-### Ajuste de Confiana
-- **Padro**: 0.5 (50%)
-- **Uso**: Filtra deteces com baixa confiana
-- **Recomendao**: Valores entre 0.3-0.7 para melhor performance
+### Ajuste de Confiança
+- **Padrão**: 0.5 (50%)
+- **Uso**: Filtra detecções com baixa confiança
+- **Recomendação**: Valores entre 0.3-0.7 para melhor performance
 
-### Otimizao de Performance
+### Otimização de Performance
 ```python
 # Para melhor performance em tempo real
 confidence_threshold = 0.6  # Reduz falsos positivos
@@ -340,25 +340,25 @@ fps_limit = 30              # Limita FPS para economizar CPU
 
 ###  Impacto Crtico do Volume de Dados
 
-**O volume de imagens  o fator determinante para acurcia e baixo loss!**
+**O volume de imagens é o fator determinante para acurácia e baixo loss!**
 
 #### Dataset Real - Kaggle Face Mask Detection
 - **Fonte**: [Kaggle - Face Mask Detection](https://www.kaggle.com/andrewmvd/face-mask-detection)
-- **Total**: 853 imagens com anotaes XML
-- **Distribuio Real**:
-  -  Com mscara: 698 imagens (81.8%)
-  -  Sem mscara: 119 imagens (13.9%) 
-  -  Mscara incorreta: 36 imagens (4.3%)
+- **Total**: 853 imagens com anotações XML
+- **Distribuição Real**:
+  - Com máscara: 698 imagens (81.8%)
+  - Sem máscara: 119 imagens (13.9%) 
+  - Máscara incorreta: 36 imagens (4.3%)
 
-###  Cenrios de Performance vs Volume
+### Cenários de Performance vs Volume
 
-| Estratgia | Volume | Balanceamento | Acurcia Final | Loss Final | Tempo |
+| Estratégia | Volume | Balanceamento | Acurácia Final | Loss Final | Tempo |
 |-----------|--------|---------------|----------------|------------|-------|
 | **Teste** | 108 imgs |  Perfeito (100%) | 70-85% | 0.8-1.5 | 10min |
-| **Dev** | 400 imgs |  Mdio (40%) | 75-90% | 0.4-0.8 | 25min |
-| **Produo** | 853 imgs |  Baixo (5%) | 85-95% | 0.1-0.4 | 60min |
+| **Dev** | 400 imgs | Médio (40%) | 75-90% | 0.4-0.8 | 25min |
+| **Produção** | 853 imgs | Baixo (5%) | 85-95% | 0.1-0.4 | 60min |
 
-###  Mtricas Observadas no Sistema
+### Métricas Observadas no Sistema
 
 ####  Modelo Balanceado (108 imagens)
 ```
@@ -369,9 +369,9 @@ fps_limit = 30              # Limita FPS para economizar CPU
    - Mascara incorreta: 36
    - Balanceamento: 100.00%
 ```
-- **Acurcia**: 70-85% (estvel)
+- **Acurácia**: 70-85% (estável)
 - **Loss**: 0.8-1.5 (controlado)
-- **Convergncia**: Rpida (10-20 pocas)
+- **Convergência**: Rápida (10-20 épocas)
 
 ####  Modelo Desbalanceado (853 imagens)  
 ```
@@ -382,9 +382,9 @@ fps_limit = 30              # Limita FPS para economizar CPU
    - Mascara incorreta: 36
    - Balanceamento: 5.16%
 ```
-- **Acurcia**: 85-95% (mxima)
+- **Acurácia**: 85-95% (máxima)
 - **Loss**: 0.1-0.4 (muito baixo)
-- **Convergncia**: Lenta (50-100 pocas)
+- **Convergência**: Lenta (50-100 épocas)
 -  **F1-Score**: ~94-97%
 
 ### Data Augmentation
@@ -399,7 +399,7 @@ augmentation_config = {
 }
 ```
 
-##  Soluo de Problemas
+## Solução de Problemas
 
 ### Problemas Comuns
 
@@ -412,50 +412,50 @@ pip install opencv-python
 - Verifique se est usando Python 3.7-3.11
 - Use: `pip install tensorflow==2.13.0`
 
-** Cmera no funciona**
-- Verifique permisses da cmera no navegador
+**Câmera não funciona**
+- Verifique permissões da câmera no navegador
 - Teste com `cv2.VideoCapture(0)` em outro script
 
-** Modelo no carregado**
+**Modelo não carregado**
 - Execute `python train_model.py` primeiro
 - Verifique se `model/mask_detector.h5` existe
 
-###  Otimizao de Performance
+### Otimização de Performance
 
 ** Treinamento lento**
-- Use GPU se disponvel: `pip install tensorflow-gpu`
+- Use GPU se disponível: `pip install tensorflow-gpu`
 - Reduza volume de imagens para testes
-- Use estratgia balanceada para convergncia rpida
+- Use estratégia balanceada para convergência rápida
 
-** Alto uso de memria durante treino**
-- Reduza batch_size no cdigo
-- Feche outras aplicaes
+**Alto uso de memória durante treino**
+- Reduza batch_size no código
+- Feche outras aplicações
 - Use imagens menores (redimensionar dataset)
 
-** Baixa acurcia do modelo**
+**Baixa acurácia do modelo**
 - **Volume insuficiente**: Use mais imagens (recomendado >400)
-- **Desbalanceamento**: Escolha estratgia balanceada  
-- **Meta muito alta**: Reduza acurcia alvo (70-85% realista)
-- **Overfitting**: Adicione mais dropout ou regularizao
+- **Desbalanceamento**: Escolha estratégia balanceada  
+- **Meta muito alta**: Reduza acurácia alvo (70-85% realista)
+- **Overfitting**: Adicione mais dropout ou regularização
 
 ** Como melhorar Loss**
 - **Mais dados**: Volume maior = loss menor
-- **Class weights**: J implementado automaticamente
-- **Data augmentation**: J otimizado no sistema
-- **Learning rate**: Sistema adaptativo implementado
+- **Class weights**: Já implementado automaticamente
+- **Data augmentation**: Já otimizado no sistema
+- **Learning rate**: Sistema adaptativo já implementado
 
-##  Consideraes de Segurana
+## Considerações de Segurança
 
--  **Privacidade**: Imagens no so armazenadas permanentemente
--  **Local**: Todo processamento  feito localmente
--  **Cmera**: Acesso  cmera apenas quando autorizado
--  **Dados**: Nenhum dado  enviado para servios externos
+- **Privacidade**: Imagens não são armazenadas permanentemente
+- **Local**: Todo processamento é feito localmente
+- **Câmera**: Acesso à câmera apenas quando autorizado
+- **Dados**: Nenhum dado é enviado para serviços externos
 
-##  Personalizao
+## Personalização
 
 ### Modificar Cores
 ```python
-# Em app.py, seo CSS
+# Em app.py, seção CSS
 colors = {
     'with_mask': '#28a745',    # Verde
     'without_mask': '#dc3545', # Vermelho
@@ -469,31 +469,31 @@ colors = {
 model_config = {
     'img_size': 224,        # Tamanho da imagem
     'batch_size': 32,       # Tamanho do batch
-    'epochs': 20,           # Nmero de pocas
+    'epochs': 20,           # Número de épocas
     'learning_rate': 1e-4   # Taxa de aprendizado
 }
 ```
 
 ##  Aprendizados Principais
 
-###  Concluses do Projeto
+### Conclusões do Projeto
 
-1. **Volume  Rei**: Mais imagens = melhor modelo (acurcia , loss )
-2. **Balanceamento vs Volume**: Trade-off crtico entre estabilidade e performance
-3. **Meta Realista**: 85-90%  excelente para datasets reais desbalanceados
-4. **Otimizaes Funcionam**: Class weights + augmentation = grande diferena
+1. **Volume é Rei**: Mais imagens = melhor modelo (acurácia ↑, loss ↓)
+2. **Balanceamento vs Volume**: Trade-off crítico entre estabilidade e performance
+3. **Meta Realista**: 85-90% é excelente para datasets reais desbalanceados
+4. **Otimizações Funcionam**: Class weights + augmentation = grande diferença
 5. **Hardware Importa**: GPU acelera significativamente o treinamento
 
-###  Recomendaes de Uso
+### Recomendações de Uso
 
 **Para Iniciantes:**
-- Use estratgia balanceada (108 imagens)
-- Meta de acurcia: 75-80%
+- Use estratégia balanceada (108 imagens)
+- Meta de acurácia: 75-80%
 - Tempo de treino: ~10 minutos
 
-**Para Produo:**
-- Use estratgia desbalanceada (853 imagens)
-- Meta de acurcia: 85-90%
+**Para Produção:**
+- Use estratégia desbalanceada (853 imagens)
+- Meta de acurácia: 85-90%
 - Tempo de treino: ~60 minutos
 
 **Para Pesquisa:**
@@ -501,9 +501,9 @@ model_config = {
 - Experimente diferentes arquiteturas
 - Use transfer learning
 
-##  Referncias e Recursos
+## Referências e Recursos
 
-###  Artigos Cientficos
+### Artigos Científicos
 - [Deep Learning for Face Mask Detection](https://arxiv.org/abs/2005.03950)
 - [CNN Architectures for Image Classification](https://arxiv.org/abs/1409.1556)
 - [Class Imbalance in Deep Learning](https://arxiv.org/abs/1901.05555)
@@ -527,9 +527,9 @@ model_config = {
 - [OpenCV Face Recognition](https://opencv.org/)
 - [Detectron2](https://github.com/facebookresearch/detectron2)
 
-##  Contribuio
+## Contribuição
 
-Contribuies so bem-vindas! Para contribuir:
+Contribuições são bem-vindas! Para contribuir:
 
 1.  Fork o projeto
 2.  Crie uma branch para sua feature (`git checkout -b feature/AmazingFeature`)
@@ -537,14 +537,14 @@ Contribuies so bem-vindas! Para contribuir:
 4.  Push para a branch (`git push origin feature/AmazingFeature`)
 5.  Abra um Pull Request
 
-### reas para Contribuio
--  Melhoria da acurcia do modelo
--  Otimizao de performance
+### Áreas para Contribuição
+- Melhoria da acurácia do modelo
+- Otimização de performance
 -  Melhorias na interface
--  Documentao adicional
+- Documentação adicional
 -  Testes automatizados
 
-##  Licena
+## Licença
 
 Este projeto est licenciado sob a [MIT License](LICENSE).
 
@@ -557,12 +557,12 @@ Este projeto est licenciado sob a [MIT License](LICENSE).
 
 ##  Suporte
 
-Se voc encontrar problemas ou tiver dvidas:
+Se você encontrar problemas ou tiver dúvidas:
 
-1.  Verifique a seo [Soluo de Problemas](#-soluo-de-problemas)
+1. Verifique a seção [Solução de Problemas](#solução-de-problemas)
 2.  Procure em [Issues](../../issues) existentes
-3.  Crie uma nova [Issue](../../issues/new) se necessrio
+3. Crie uma nova [Issue](../../issues/new) se necessário
 
 ---
 
-** Se este projeto foi til, considere dar uma estrela no repositrio!**
+**Se este projeto foi útil, considere dar uma estrela no repositório!**
