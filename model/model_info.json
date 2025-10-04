@@ -1,0 +1,12 @@
+{
+  "img_size": 224,
+  "classes": [
+    "mask_weared_incorrect",
+    "with_mask",
+    "without_mask"
+  ],
+  "total_images": 108,
+  "accuracy": 0.3636363744735718,
+  "target_accuracy": 0.85,
+  "model_path": "model/mask_detector.h5"
+}
